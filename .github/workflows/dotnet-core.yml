@@ -45,4 +45,4 @@ jobs:
           script: |
             cd projects/dnd-board
             docker-compose down
-            docker-compose up -d --build backend-api
+            docker-compose up -d --build dnd-board-api
