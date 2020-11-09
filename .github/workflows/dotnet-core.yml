@@ -31,7 +31,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          rm: true
           strip_components: 5
           source: "/home/runner/work/DnD-Board/DnD-Board/DnD-Board.API/bin/build/"
           target: "projects/dnd-board/backend-api"

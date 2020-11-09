@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DnD_Board.Data.Models
 {
@@ -12,5 +13,16 @@ namespace DnD_Board.Data.Models
         public string PasswordHash { get; set; }
 
         public string PasswordSalt { get; set; }
+
+        [InverseProperty("Reporter")]
+        public virtual ICollection<Task> CreatedTasks { get; set; }
+
+        public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<TaskAssignee> TaskAssignees { get; set; }
+
+        public virtual ICollection<TaskAction> TaskActions { get; set; }
     }
 }

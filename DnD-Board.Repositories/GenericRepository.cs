@@ -1,6 +1,7 @@
 ﻿using DnD_Board.Data.Models;
 using DnD_Board.IRepositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace DnD_Board.Repositories
         {
             Context = context;
             Table = Context.Set<T>();
+        }
+
+        public IIncludableQueryable<T, TProperty> Include<TProperty>(Expression<Func<T, TProperty>> navigationPropertyPath)
+        {
+            return Table.Include(navigationPropertyPath);
         }
 
         public T Add(T entity)

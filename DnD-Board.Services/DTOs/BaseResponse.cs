@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace DnD_Board.API.DTOs
+namespace DnD_Board.Services.DTOs
 {
     public class BaseResponse<T>
     {

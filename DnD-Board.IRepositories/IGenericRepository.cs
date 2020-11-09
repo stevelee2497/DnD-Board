@@ -1,4 +1,5 @@
 ﻿using DnD_Board.Data.Models;
+using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -7,6 +8,8 @@ namespace DnD_Board.IRepositories
 {
     public interface IGenericRepository<T> where T : BaseModel
     {
+        IIncludableQueryable<T, TProperty> Include<TProperty>(Expression<Func<T, TProperty>> navigationPropertyPath);
+
         T Add(T entity);
 
         IEnumerable<T> AddRange(IEnumerable<T> entities);

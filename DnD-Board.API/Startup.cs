@@ -1,3 +1,4 @@
+using AutoMapper;
 using DnD_Board.API.Filters;
 using DnD_Board.Data.Contexts;
 using DnD_Board.IRepositories;
@@ -17,6 +18,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using System;
 
 namespace DnD_Board.API
 {
@@ -36,9 +38,11 @@ namespace DnD_Board.API
             services.AddSingleton(Configuration);
             services.AddMvc(MvcOptions).AddNewtonsoftJson(JsonOption).SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddSwaggerGen(SwaggerConfigs);
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContext<EfDbContext>(DbContextOptions);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

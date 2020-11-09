@@ -1,5 +1,5 @@
-﻿using DnD_Board.API.DTOs;
-using DnD_Board.Common.Exceptions;
+﻿using DnD_Board.Common.Exceptions;
+using DnD_Board.Services.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
