@@ -33,5 +33,9 @@
     <ProjectReference Include="..\DnD-Board.Services\DnD-Board.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 
 </Project>

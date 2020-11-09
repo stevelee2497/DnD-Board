@@ -21,7 +21,7 @@ namespace DnD_Board.Services
             var res = _unitOfWork.Repository<User>().Add(user);
 
             var role = _unitOfWork.Repository<Role>().FirstOrDefault(x => x.Name == DefaultRole.User);
-            _unitOfWork.Repository<UserRole>().Add(new UserRole { UserId = res.Id, RoleId = role.Id });
+            res.UserRoles.Add(new UserRole { UserId = res.Id, RoleId = role.Id });
 
             _unitOfWork.Complete();
             return res;
