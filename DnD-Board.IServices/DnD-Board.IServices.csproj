@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DnD-Board.Data\DnD-Board.Data.csproj" />
+    <ProjectReference Include="..\DnD-Board.DTOs\DnD-Board.DTOs.csproj" />
   </ItemGroup>
 
 </Project>

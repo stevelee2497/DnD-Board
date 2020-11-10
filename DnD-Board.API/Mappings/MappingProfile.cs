@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DnD_Board.Data.Models;
-using DnD_Board.Services.DTOs;
+using DnD_Board.DTOs;
 using System.Linq;
 
 namespace DnD_Board.API.Mappings
@@ -18,6 +18,24 @@ namespace DnD_Board.API.Mappings
                 );
 
             CreateMap<CreateUserDto, User>();
+
+            CreateMap<BoardUser, BoardUserDto>()
+                .ForMember(
+                    destination => destination.DisplayName,
+                    map => map.MapFrom(source => source.User.DisplayName)
+                )
+                .ForMember(
+                    destination => destination.AvatarUrl,
+                    map => map.MapFrom(source => source.User.AvatarUrl)
+                );
+
+            CreateMap<CreateBoardDto, Board>();
+
+            CreateMap<Board, BoardOutputDto>()
+                .ForMember(
+                    destination => destination.Users,
+                    map => map.MapFrom(source => source.BoardUsers)
+                );
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DnD_Board.IServices;
-using DnD_Board.Services.DTOs;
+using DnD_Board.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DnD_Board.Services.DTOs
+namespace DnD_Board.DTOs
 {
     public class RoleDto
     {

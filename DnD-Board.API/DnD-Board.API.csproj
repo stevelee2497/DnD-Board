@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DnD-Board.Common\DnD-Board.Common.csproj" />
+    <ProjectReference Include="..\DnD-Board.DTOs\DnD-Board.DTOs.csproj" />
     <ProjectReference Include="..\DnD-Board.Services\DnD-Board.Services.csproj" />
   </ItemGroup>
 

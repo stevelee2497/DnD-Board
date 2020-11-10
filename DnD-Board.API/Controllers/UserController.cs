@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using DnD_Board.Data.Models;
 using DnD_Board.IServices;
-using DnD_Board.Services.DTOs;
+using DnD_Board.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace DnD_Board.API.Controllers
 {
@@ -34,6 +35,27 @@ namespace DnD_Board.API.Controllers
             var user = _mapper.Map<User>(createUserDto);
             var response = _userService.CreateUser(user);
             return new SuccessResponse<UserDto>(_mapper.Map<UserDto>(response));
+        }
+
+        [HttpGet("{id}")]
+        public SuccessResponse<UserDto> GetUser(Guid id)
+        {
+            var res = _userService.GetUser(id);
+            return new SuccessResponse<UserDto>(_mapper.Map<UserDto>(res));
+        }
+
+        [HttpPut("{id}")]
+        public BaseResponse<UserDto> UpdateUser([FromBody] CreateUserDto userDto, Guid id)
+        {
+            var res = _userService.UpdateUser(id, userDto);
+            return new SuccessResponse<UserDto>(_mapper.Map<UserDto>(res));
+        }
+
+        [HttpDelete("{id}")]
+        public SuccessResponse<string> DeleteUser(Guid id)
+        {
+            _userService.DeleteUser(id);
+            return new SuccessResponse<string>("success");
         }
     }
 }

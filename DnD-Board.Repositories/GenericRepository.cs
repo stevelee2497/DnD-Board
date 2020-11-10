@@ -1,4 +1,5 @@
-﻿using DnD_Board.Data.Models;
+﻿using DnD_Board.Common.Exceptions;
+using DnD_Board.Data.Models;
 using DnD_Board.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -63,7 +64,7 @@ namespace DnD_Board.Repositories
         public T Find(Guid id)
         {
             var res = Table.Find(id);
-            return res?.IsActive == true ? res : null;
+            return res?.IsActive == true ? res : throw new DataNotFoundException($"Cound not find record {typeof(T).Name} id {id}");
         }
 
         public T First(Expression<Func<T, bool>> predicate)

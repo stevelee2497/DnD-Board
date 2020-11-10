@@ -41,6 +41,7 @@ namespace DnD_Board.API
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddDbContext<EfDbContext>(DbContextOptions);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IBoardService, BoardService>();
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
         }

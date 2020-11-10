@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DnD_Board.Services.DTOs
+namespace DnD_Board.DTOs
 {
     public class UserDto
     {
@@ -18,5 +18,7 @@ namespace DnD_Board.Services.DTOs
         public string DisplayName { get; set; }
 
         public string Password { get; set; }
+
+        public string AvatarUrl { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace DnD_Board.Data.Models
 
         public string Email { get; set; }
 
+        public string AvatarUrl { get; set; }
+
         public string PasswordHash { get; set; }
 
         public string PasswordSalt { get; set; }
