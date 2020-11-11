@@ -8,10 +8,17 @@ namespace DnD_Board.IServices
     public interface IBoardService
     {
         Board CreateBoard(CreateBoardDto createBoardDto);
+
         BoardUser CreateBoardUser(BoardUser boardUser);
+
         void DeleteBoard(Guid id);
+
         Board GetBoard(Guid id);
+
         IEnumerable<Board> GetBoards(BoardQuery query);
+
+        void RemoveBoardUser(Guid id);
+
         Board UpdateBoard(Guid id, UpdateBoardDto dto);
     }
 }

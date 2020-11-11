@@ -36,6 +36,8 @@ namespace DnD_Board.API.Mappings
                     destination => destination.Users,
                     map => map.MapFrom(source => source.BoardUsers)
                 );
+
+            CreateMap<CreateTaskDto, Task>();
         }
     }
 }

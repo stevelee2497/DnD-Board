@@ -65,5 +65,12 @@ namespace DnD_Board.API.Controllers
             var res = _boardService.CreateBoardUser(model);
             return new SuccessResponse<BoardUserDto>(_mapper.Map<BoardUserDto>(res));
         }
+
+        [HttpDelete("{id}/users/{boardUserId}")]
+        public SuccessResponse<string> RemoveBoardUser(Guid boardUserId)
+        {
+            _boardService.RemoveBoardUser(boardUserId);
+            return new SuccessResponse<string>("success");
+        }
     }
 }

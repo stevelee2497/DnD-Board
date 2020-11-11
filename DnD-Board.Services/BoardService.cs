@@ -70,6 +70,13 @@ namespace DnD_Board.Services
             return boardUser;
         }
 
+        public void RemoveBoardUser(Guid id)
+        {
+            var model = _unitOfWork.Repository<BoardUser>().Find(id);
+            _unitOfWork.Repository<BoardUser>().Remove(model);
+            _unitOfWork.Complete();
+        }
+
         public Board GetBoard(Guid id) => _unitOfWork.Repository<Board>().Find(id);
     }
 }
